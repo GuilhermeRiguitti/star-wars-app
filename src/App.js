@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import CharacterDetailPage from './components/CharacterDetailPage/CharacterDetailPage';
+import CharacterListPage from './components/CharacterListPage/CharacterListPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    detalhes: false
+  }
+
+  verDetalhes = () => {
+    this.setState({detalhes: true});
+  };
+  voltarList = () => {
+    this.setState({detalhes: false})
+  }
+  
+  render() {
+    let pagina = <h1>Pagina erro</h1>;
+      if(this.state.detalhes === false) {
+        pagina = <CharacterListPage onClickDetalhes={this.verDetalhes} />
+      }else{
+        pagina = <CharacterDetailPage onClickVoltar={this.voltarList}/>
+      }
+
+    return (
+      <>
+        <h1>STAR WARS</h1>
+        {pagina}
+      </>
+    );
+  }
 }
 
-export default App;
