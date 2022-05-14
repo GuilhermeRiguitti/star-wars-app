@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { SubTituloText, Dados, TituloPagina, TituloText } from '../CharacterDetailPage/StyledCharacterDetailPage';
+
 
 
 export default class CharacterListPage extends React.Component {
@@ -12,29 +14,37 @@ export default class CharacterListPage extends React.Component {
   }
 
   request = () => {
-    const imprimirLista = this.state.lista
     axios
-      .get('https://swapi.dev/api/planets', {
+      .get('https://swapi.dev/api/people/', {
         headers: {
           'Content-Type': 'application/json',
         },
       })
       .then((response) => {
-        this.setState({ lista: response.data.results });
-      });
-      console.log(imprimirLista)
+        this.setState({ lista: response.data.results })
+      })
+      .catch((error) =>{
+        console.log(error.response.data)
+      }
+      ) ;
+      
   };
   
   render() {
     const renderList = this.state.lista.map((objeto) => {
-      return <p>{objeto.name}</p>;
+      return <h1>{objeto.name}  </h1>              
     });
 
     return (
     <>
-    <h1>CHARACTER LIST PAGE</h1>
+    <TituloPagina>
+    <TituloText>STAR WARS</TituloText>
+    <SubTituloText>CHARACTER LIST PAGE</SubTituloText>
+    </TituloPagina>
+    <Dados>
     {renderList}
     <button onClick={this.props.onClickDetalhes}>Ver Detalhes</button>
+    </Dados>
     </>
     )
   }

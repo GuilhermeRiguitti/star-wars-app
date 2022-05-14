@@ -1,5 +1,6 @@
 import React from 'react';
 import CharacterDetailPage from './components/CharacterDetailPage/CharacterDetailPage';
+import { BackgroundApp } from './components/CharacterDetailPage/StyledCharacterDetailPage';
 import CharacterListPage from './components/CharacterListPage/CharacterListPage';
 
 export default class App extends React.Component {
@@ -23,10 +24,10 @@ export default class App extends React.Component {
       }
 
     return (
-      <>
-        <h1>STAR WARS</h1>
+      <BackgroundApp>
+        
         {pagina}
-      </>
+      </BackgroundApp>
     );
   }
 }
