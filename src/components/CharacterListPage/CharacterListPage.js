@@ -32,7 +32,7 @@ export default class CharacterListPage extends React.Component {
   
   render() {
     const renderList = this.state.lista.map((objeto) => {
-      return <h1>{objeto.name}  </h1>              
+      return <h1 onClick={this.props.onClickDetalhes}>{objeto.name}  </h1>              
     });
 
     return (

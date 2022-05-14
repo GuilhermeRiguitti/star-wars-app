@@ -1,34 +1,30 @@
-import React from 'react';
+import React, {useState}from 'react';
 import CharacterDetailPage from './components/CharacterDetailPage/CharacterDetailPage';
 import { BackgroundApp } from './components/CharacterDetailPage/StyledCharacterDetailPage';
 import CharacterListPage from './components/CharacterListPage/CharacterListPage';
 
-export default class App extends React.Component {
-  state = {
-    detalhes: false
-  }
+export default function App() {
+  const [detalhes, setDetalhes] = useState(false)
 
-  verDetalhes = () => {
-    this.setState({detalhes: true});
+  const verDetalhes = () => {
+    setDetalhes(true);
   };
-  voltarList = () => {
-    this.setState({detalhes: false})
+  const voltarList = () => {
+    setDetalhes(false)
   }
-  
-  render() {
-    let pagina = <h1>Pagina erro</h1>;
-      if(this.state.detalhes === false) {
-        pagina = <CharacterListPage onClickDetalhes={this.verDetalhes} />
-      }else{
-        pagina = <CharacterDetailPage onClickVoltar={this.voltarList}/>
-      }
 
-    return (
+  let pagina = <h1>Pagina erro</h1>;
+      if(detalhes === false) {
+        pagina = <CharacterListPage onClickDetalhes={verDetalhes} />
+      }else{
+        pagina = <CharacterDetailPage onClickVoltar={voltarList}/>
+      }
+  
+  return (
       <BackgroundApp>
-        
         {pagina}
       </BackgroundApp>
     );
   }
-}
+
 

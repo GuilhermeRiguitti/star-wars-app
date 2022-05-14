@@ -4,15 +4,20 @@ import { SubTituloText, TituloText, Dados, BackgroundApp, TituloPagina} from './
 export default class CharacterDetailPage extends React.Component {
   state = {
     listaDetalhada: [],
+    people:""
   };
+
 
   componentDidMount() {
     this.request();
   }
+  
+  
 
   request = () => {
+    const url = 'https://swapi.dev/api/'
     axios
-      .get('https://swapi.dev/api/people/', {
+      .get(url + 'people', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -23,8 +28,9 @@ export default class CharacterDetailPage extends React.Component {
       
   };
   render() {
-    const renderList = this.state.listaDetalhada.map((objeto) => {
-      return <p><h3>{objeto.name}</h3> <br/> Height: {objeto.height} <br/> Mass:{objeto.mass} <br/> Birth Year: {objeto.birth_year} <br/> Gender: {objeto.gender} </p>              
+    const renderList = this.state.listaDetalhada.map((personagem) => {
+      return <p><h3>{personagem.name}</h3> <br/> Height: {personagem.height} <br/> Mass:{personagem.mass} <br/> Birth Year: {personagem.birth_year} <br/> Gender: {personagem.gender} </p>
+                  
     });
 
    
