@@ -1,52 +1,49 @@
-import React from 'react';
+import React, {useEffect , useState} from 'react';
 import axios from 'axios';
-import { SubTituloText, TituloText, Dados, BackgroundApp, TituloPagina} from './StyledCharacterDetailPage';
-export default class CharacterDetailPage extends React.Component {
-  state = {
-    listaDetalhada: [],
-    people:""
-  };
-
-
-  componentDidMount() {
-    this.request();
-  }
-  
-  
-
-  request = () => {
-    const url = 'https://swapi.dev/api/'
+import { ConteudoPaginaDetail, TituloPagina} from './StyledCharacterDetailPage';
+export default function CharacterDetailPage(props) {
+  const [detalhes, setDetalhes] = useState({});
+  console.log(props.url)
+  useEffect(()=>{
+    pegarDetalhes();
+  }, []
+  )
+  const pegarDetalhes = () => {
     axios
-      .get(url + 'people', {
+      .get(props.url,{
         headers: {
-          'Content-Type': 'application/json',
-        },
+          "Content-Type": "application/json"
+        }
       })
       .then((response) => {
-        this.setState({ listaDetalhada: response.data.results });
+        setDetalhes(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
       
   };
-  render() {
-    const renderList = this.state.listaDetalhada.map((personagem) => {
-      return <p><h3>{personagem.name}</h3> <br/> Height: {personagem.height} <br/> Mass:{personagem.mass} <br/> Birth Year: {personagem.birth_year} <br/> Gender: {personagem.gender} </p>
-                  
-    });
-
-   
   
   return (
-    <BackgroundApp>
+    <>
       <TituloPagina>
-      <TituloText>STAR WARS</TituloText>
-      <SubTituloText>CHARACTER DETAIL PAGE</SubTituloText>
+        <h1>STAR WARS</h1>
+        <h3>CHARACTER DETAIL PAGE</h3>
       </TituloPagina>
-      <Dados>
-      {renderList}
-      </Dados>
-      <button onClick={this.props.onClickVoltar}>Voltar Lista</button>
-    </BackgroundApp>
+      <ConteudoPaginaDetail>
+        <h5>
+          Name: {detalhes.name}  <br/> <br/>
+          Height: {detalhes.height}  <br/> <br/> 
+          Mass: {detalhes.mass}  <br/> <br/>
+          Hair Color: {detalhes.hair_color} <br/> <br/>
+          Skin Color: {detalhes.skin_color} <br/> <br/>
+          Eye Color: {detalhes.eye_color} <br/> <br/>
+          Birth Year: {detalhes.birth_year} <br/> <br/>
+          Gender: {detalhes.gender} <br/>
+        </h5>
+      </ConteudoPaginaDetail>
+    </>
   );
 };
-}
+
 

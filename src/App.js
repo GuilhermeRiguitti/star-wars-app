@@ -3,28 +3,39 @@ import CharacterDetailPage from './components/CharacterDetailPage/CharacterDetai
 import { BackgroundApp } from './components/CharacterDetailPage/StyledCharacterDetailPage';
 import CharacterListPage from './components/CharacterListPage/CharacterListPage';
 
+
 export default function App() {
-  const [detalhes, setDetalhes] = useState(false)
+  const [pagina, setPagina] = useState("ListPage")
+  const [url, setUrl] = useState ("")
 
-  const verDetalhes = () => {
-    setDetalhes(true);
-  };
-  const voltarList = () => {
-    setDetalhes(false)
+  const mudarPagina = (pagina, url) => {
+    setPagina(pagina)
+    setUrl(url)
   }
-
-  let pagina = <h1>Pagina erro</h1>;
-      if(detalhes === false) {
-        pagina = <CharacterListPage onClickDetalhes={verDetalhes} />
-      }else{
-        pagina = <CharacterDetailPage onClickVoltar={voltarList}/>
+  
+  
+ 
+      let paginaAtual = ""
+      if(pagina === "ListPage") {
+        paginaAtual = <CharacterListPage onClickDetalhes={
+            mudarPagina.bind(this)
+        }/>
+          
+        
+      }else{paginaAtual = 
+        <>
+          <CharacterDetailPage url={url}/>
+          <button onClick={ () => {setPagina("ListPage")}}>Voltar</button>
+        </>
       }
   
   return (
       <BackgroundApp>
-        {pagina}
+        {paginaAtual}
       </BackgroundApp>
     );
   }
+  
+
 
 

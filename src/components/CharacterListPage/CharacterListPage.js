@@ -1,51 +1,42 @@
-import React from 'react';
+import React, {useState , useEffect} from 'react';
 import axios from 'axios';
-import { SubTituloText, Dados, TituloPagina, TituloText } from '../CharacterDetailPage/StyledCharacterDetailPage';
+import { Button, ConteudoPagina, TituloPagina } from '../CharacterDetailPage/StyledCharacterDetailPage';
 
+const CharacterListPage = (props) => {
+  const [personagem, setPersonagem] = useState([]);
 
-
-export default class CharacterListPage extends React.Component {
-  state = {
-    lista: [],
-  };
-
-  componentDidMount() {
-    this.request();
-  }
-
-  request = () => {
+  useEffect(()=>{
+    pegarPersonagens();
+  }, []
+  )
+  const pegarPersonagens = () => {
     axios
-      .get('https://swapi.dev/api/people/', {
+      .get(`https://swapi.dev/api/people/`,{
         headers: {
-          'Content-Type': 'application/json',
-        },
+          "Content-Type": "application/json"
+        }
       })
       .then((response) => {
-        this.setState({ lista: response.data.results })
+        setPersonagem(response.data.results);
       })
-      .catch((error) =>{
-        console.log(error.response.data)
-      }
-      ) ;
-      
+      .catch((error) => {
+        console.log(error.message);
+      }); 
   };
-  
-  render() {
-    const renderList = this.state.lista.map((objeto) => {
-      return <h1 onClick={this.props.onClickDetalhes}>{objeto.name}  </h1>              
-    });
-
-    return (
+  const listaPersonagens = personagem.map((people) => {
+    return <Button onClick={ () => {props.onClickDetalhes("Detalhes", people.url)}}>{people.name}</Button>
+  }
+  )
+  return (
     <>
     <TituloPagina>
-    <TituloText>STAR WARS</TituloText>
-    <SubTituloText>CHARACTER LIST PAGE</SubTituloText>
+      <h1 >STAR WARS</h1>
+      <h3>CHARACTER LIST PAGE</h3>
     </TituloPagina>
-    <Dados>
-    {renderList}
-    <button onClick={this.props.onClickDetalhes}>Ver Detalhes</button>
-    </Dados>
+    <ConteudoPagina>
+      {listaPersonagens}
+    </ConteudoPagina>
     </>
     )
   }
-}
+export default CharacterListPage;
