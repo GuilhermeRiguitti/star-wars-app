@@ -1,7 +1,6 @@
 import React, {useState , useEffect} from 'react';
 import axios from 'axios';
-import { Button, ConteudoPagina, TituloPagina } from '../CharacterDetailPage/StyledCharacterDetailPage';
-
+import { TituloPagina, ConteudoListPage, Button } from './StyledCharacterListPage';
 const CharacterListPage = (props) => {
   const [personagem, setPersonagem] = useState([]);
 
@@ -33,9 +32,9 @@ const CharacterListPage = (props) => {
       <h1 >STAR WARS</h1>
       <h3>CHARACTER LIST PAGE</h3>
     </TituloPagina>
-    <ConteudoPagina>
+    <ConteudoListPage>
       {listaPersonagens}
-    </ConteudoPagina>
+    </ConteudoListPage>
     </>
     )
   }

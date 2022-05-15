@@ -1,6 +1,6 @@
 import React, {useEffect , useState} from 'react';
 import axios from 'axios';
-import { ConteudoPaginaDetail, TituloPagina} from './StyledCharacterDetailPage';
+import { ConteudoDetailPage, TituloPagina} from './StyledCharacterDetailPage';
 export default function CharacterDetailPage(props) {
   const [detalhes, setDetalhes] = useState({});
   console.log(props.url)
@@ -30,7 +30,7 @@ export default function CharacterDetailPage(props) {
         <h1>STAR WARS</h1>
         <h3>CHARACTER DETAIL PAGE</h3>
       </TituloPagina>
-      <ConteudoPaginaDetail>
+      <ConteudoDetailPage>
         <h5>
           Name: {detalhes.name}  <br/> <br/>
           Height: {detalhes.height}  <br/> <br/> 
@@ -41,7 +41,7 @@ export default function CharacterDetailPage(props) {
           Birth Year: {detalhes.birth_year} <br/> <br/>
           Gender: {detalhes.gender} <br/>
         </h5>
-      </ConteudoPaginaDetail>
+      </ConteudoDetailPage>
     </>
   );
 };
