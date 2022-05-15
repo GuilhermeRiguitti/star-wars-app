@@ -5,7 +5,7 @@ export const BackgroundApp = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: max-content;
+    height: 98vh;
     background-color: #1244B3;
     border-radius: 90px;  
 `
@@ -25,11 +25,12 @@ export const ConteudoDetailPage= styled.div`
     font-size: large;
     width: 40%;
     height: max-content;
-    margin: 10px;
+    margin: 5% auto;
     font-family: 'Courier New', Courier, monospace;
     color: white;
     background-color: #000000;
     padding: 20px;
     justify-content: center;
-    
+    border-radius: 90px;
+    box-shadow: 2px 2px 2px #CEFF19;
 `
