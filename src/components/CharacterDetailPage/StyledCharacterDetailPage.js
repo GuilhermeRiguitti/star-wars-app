@@ -5,7 +5,7 @@ export const BackgroundApp = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 98vh;
+    height: max-content;
     background-color: #1244B3;
     border-radius: 90px;  
 `

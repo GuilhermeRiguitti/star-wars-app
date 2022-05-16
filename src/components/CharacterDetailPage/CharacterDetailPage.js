@@ -32,14 +32,14 @@ export default function CharacterDetailPage(props) {
       </TituloPagina>
       <ConteudoDetailPage>
         <h5>
-          Name: {detalhes.name}  <br/> <br/>
-          Height: {detalhes.height}  <br/> <br/> 
-          Mass: {detalhes.mass}  <br/> <br/>
-          Hair Color: {detalhes.hair_color} <br/> <br/>
-          Skin Color: {detalhes.skin_color} <br/> <br/>
-          Eye Color: {detalhes.eye_color} <br/> <br/>
-          Birth Year: {detalhes.birth_year} <br/> <br/>
-          Gender: {detalhes.gender} <br/>
+          NAME: {detalhes.name}  <br/> <br/>
+          HEIGHT: {detalhes.height}  <br/> <br/> 
+          MASS: {detalhes.mass}  <br/> <br/>
+          HAIR COLOR: {detalhes.hair_color} <br/> <br/>
+          SKIN COLOR: {detalhes.skin_color} <br/> <br/>
+          EYE COLOR: {detalhes.eye_color} <br/> <br/>
+          BIRTH YEAR: {detalhes.birth_year} <br/> <br/>
+          GENDER: {detalhes.gender} <br/>
         </h5>
       </ConteudoDetailPage>
     </>
