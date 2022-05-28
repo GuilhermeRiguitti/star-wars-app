@@ -1,6 +1,6 @@
 import React, {useState , useEffect} from 'react';
 import axios from 'axios';
-import { UltimaPaginacao, PrimeiraPaginacao, BotaoPaginacao, Paginacao, TituloPagina, ConteudoListPage, Button} from './StyledCharacterListPage';
+import { UltimaPaginacao, PrimeiraPaginacao, BotaoPaginacao, Paginacao,  ConteudoListPage, Button} from './StyledCharacterListPage';
 const CharacterListPage = (props) => {
   const [personagem, setPersonagem] = useState([]);
   const [contador, setContador] = useState (1)
@@ -40,10 +40,10 @@ const CharacterListPage = (props) => {
   if (contador === 1){ //se a mensagem for enviada pelo usuario eu irá para o lado direito 
     return (
       <>
-        <TituloPagina>
+        
           <h1 >STAR WARS</h1>
           <h3>CHARACTER LIST PAGE</h3>
-        </TituloPagina>
+        
         <ConteudoListPage>
           {listaPersonagens}
         </ConteudoListPage>
@@ -55,10 +55,10 @@ const CharacterListPage = (props) => {
   }else if(contador !== 1 && contador !== 9){
       return (
         <>
-          <TituloPagina>
+          
             <h1 >STAR WARS</h1>
             <h3>CHARACTER LIST PAGE</h3>
-          </TituloPagina>
+          
           <ConteudoListPage>
             {listaPersonagens}
           </ConteudoListPage>
@@ -71,10 +71,10 @@ const CharacterListPage = (props) => {
     }else if(contador === 9){
       return (
         <>
-        <TituloPagina>
+        
           <h1 >STAR WARS</h1>
           <h3>CHARACTER LIST PAGE</h3>
-        </TituloPagina>
+        
         <ConteudoListPage>
           {listaPersonagens}
         </ConteudoListPage>

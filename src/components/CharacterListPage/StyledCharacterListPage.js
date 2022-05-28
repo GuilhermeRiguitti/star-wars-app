@@ -1,28 +1,25 @@
 import styled from "styled-components"
 
-export const TituloPagina = styled.div`
-    box-shadow: 2px 2px 2px #CEFF19;
-    width: 70%;
-    height: max-content;
-    padding: 1px;
-    background-color: #A61C00;
-    text-align: center;
-    border-radius: 90px;
-    font-family: 'Courier New', Courier, monospace;  
+
+
+export const ImgTitulo = styled.div`
+    width: 100%;
 `
 export const ConteudoListPage= styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 35%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 3fr 3fr 3fr 3fr 3fr ;
+    width: 70%;
+    height: 100%;
     text-align: center;
     
 ` 
 export const Button = styled.button`
     margin: 10px;
-    background-color: #000000;
+    background: rgba(120, 10, 10, 0.7);
     color: white;
-    border-radius: 90px;
-    box-shadow: 2px 2px 2px #D4F518;
+    border-radius: 10px;
+    box-shadow: 1.25px 1.25px 2px 	#4169E1;
     font-family: 'Courier New', Courier, monospace;
     margin-top: 5%;
 `
@@ -34,8 +31,8 @@ export const PrimeiraPaginacao = styled.div`
 
 export const Paginacao = styled.div`
     display: flex;
-    justify-content: space-between;
-    width: 80%;
+    justify-content: space-around;
+    width: 30%;
 `
 
 export const UltimaPaginacao = styled.div`
@@ -47,7 +44,7 @@ export const BotaoPaginacao = styled.button`
     color: white;
     border-radius: 90px;
     width: 120px;
-    margin-bottom: 10px;
+    margin: 10px;
 
 
 `

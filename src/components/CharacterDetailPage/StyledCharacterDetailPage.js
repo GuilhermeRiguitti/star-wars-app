@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 export const BackgroundApp = styled.div`
+    background-image: url("https://lumiere-a.akamaihd.net/v1/images/sa_starwars_virtualbg_16x9_024_0f1a87c3.jpeg");
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: max-content;
-    background-color: #1244B3;
-    border-radius: 90px;  
-`
+    height: 100vh;
+    
+`    
 export const TituloPagina = styled.div`
     box-shadow: 2px 2px 2px #CEFF19;
     width: 70%;

@@ -26,10 +26,10 @@ export default function CharacterDetailPage(props) {
   
   return (
     <>
-      <TituloPagina>
+      
         <h1>STAR WARS</h1>
         <h3>CHARACTER DETAIL PAGE</h3>
-      </TituloPagina>
+      
       <ConteudoDetailPage>
         <h5>
           NAME: {detalhes.name}  <br/> <br/>
